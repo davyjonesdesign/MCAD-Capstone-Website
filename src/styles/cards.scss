@@ -1,0 +1,44 @@
+@import '@/styles/colors.scss';
+
+.home {
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    & .card {
+        overflow: hidden;
+        flex: 1;
+        margin: 8px 12px 16px;
+        border-radius: 24px;
+        border: 1px solid $charcoal;
+        background: $vanilla;
+        box-shadow: 0px 8px 0px 0px $charcoal;
+    } & :hover {
+        background: $tan;
+    } & .card-content {
+        height: 100%;
+
+    } & .card-content img {
+        // border-radius: 24px 24px 0 0;
+        height: 50%;
+        width: 100%;
+        object-fit: cover;
+    } & .card-content-text {
+        margin: 18px;
+        
+    } & .card-content-text h3 {
+        text-decoration: none;
+        color: $plum;
+        font-size: 20px;
+        margin: 0;
+        font-weight: 800;
+        line-height: normal;
+        text-decoration: none;
+        letter-spacing: 0.2px;
+    } & .card-content-text p {
+        color: $charcoal;
+        font-size: 16px;
+        margin: 0;
+        font-weight: 400;
+        line-height: 24px;
+    }
+}
