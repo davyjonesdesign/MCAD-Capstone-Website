@@ -6,7 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="/favicon.png">
-    <title>capstone</title>
+    <title>MCAD Capstone - Davy Jones</title>
+    <!-- place under title  -->
+    <script>
+        (function (l) {
+            if (l.search[1] === "/") {
+            var decoded = l.search
+                .slice(1)
+                .split("&")
+                .map(function (s) {
+                return s.replace(/~and~/g, "&");
+                })
+                .join("?");
+            window.history.replaceState(
+                null,
+                null,
+                l.pathname.slice(0, -1) + decoded + l.hash
+            );
+            }
+        })(window.location);
+    </script>
     <script defer="defer" src="/js/chunk-vendors.7b2f1424.js"></script>
     <script defer="defer" src="/js/app.b7b5c596.js"></script>
     <link href="/css/app.4c059bcc.css" rel="stylesheet">
