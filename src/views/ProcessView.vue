@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
+  <div class="process">
     <header class="header-internal">
-      <h2>About</h2>
+      <h2>Process</h2>
       <div class="splash-content">
         <WisLogo/>
       </div>
@@ -9,13 +9,13 @@
     </header>
     <div class="page">
       <transition-group name="fade" mode="out-in">
-        <div v-if="isContentVisible" class="content-wrapper" :key="currentIndex">
-          <img class="img-left" v-if="currentContent.imgLeft" :src="currentContent.imgLeft" alt="Process Image: {{ currentContent.title }}" />
+        <div v-if="isContentVisible" :class="['content-wrapper', { 'img-right': currentContent.imgRight }]" :key="currentIndex">
+          <img v-if="currentContent.imgLeft" :src="currentContent.imgLeft" alt="Process Image: {{ currentContent.title }}" />
           <div :class="['content-text', { 'text-right': currentContent.imgRight }]">
             <h3>{{ currentContent.title }}</h3>
             <p v-for="pp in currentContent.text" v-bind:key="pp.id">{{ pp }}</p>
           </div>
-          <img class="img-right" v-if="currentContent.imgRight" :src="currentContent.imgRight" alt="Process Image: {{ currentContent.title }}" />
+          <img v-if="currentContent.imgRight" :src="currentContent.imgRight" alt="Process Image: {{ currentContent.title }}" />
         </div>
       </transition-group>
     </div>
@@ -35,13 +35,20 @@
 import WisLogo from '@/components/WisLogo.vue';
 
 export default {
-  name: 'AboutView',
+  name: 'ProcessView',
   data() {
     return {
       currentIndex: 0,
       content: [
-        { title: 'Content 1', text: ['This is the first content.'], imgLeft: require('@/assets/mount-temptation.jpg') },
-        { title: 'Content 2', text: ['This is the second content.'] },
+        { 
+          title: 'Content 1', 
+          text: [
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Eget aliquet nibh praesent tristique magna sit amet purus gravida. Netus et malesuada fames ac turpis. Imperdiet sed euismod nisi porta lorem mollis. Auctor urna nunc id cursus metus. Volutpat blandit aliquam etiam erat velit scelerisque in. Eu nisl nunc mi ipsum faucibus. A iaculis at erat pellentesque adipiscing. Congue nisi vitae suscipit tellus mauris a diam maecenas sed. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Eget aliquet nibh praesent tristique magna sit amet purus gravida. Netus et malesuada fames ac turpis. Imperdiet sed euismod nisi porta lorem mollis. Auctor urna nunc id cursus metus. Volutpat blandit aliquam etiam erat velit scelerisque in. Eu nisl nunc mi ipsum faucibus. A iaculis at erat pellentesque adipiscing. Congue nisi vitae suscipit tellus mauris a diam maecenas sed. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo.'
+          ],
+          imgLeft: require('@/assets/mount-temptation.jpg')
+        },
+        { title: 'Content 2', text: ['This is the second content.'], imgRight: require('@/assets/mount-temptation.jpg')},
         { title: 'Content 3', text: ['This is the third content.'] }
       ],
       isContentVisible: true

@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
+  <div class="resources">
     <header class="header-internal">
-      <h2>About</h2>
+      <h2>Resources</h2>
       <div class="splash-content">
         <WisLogo/>
       </div>
@@ -35,7 +35,7 @@
 import WisLogo from '@/components/WisLogo.vue';
 
 export default {
-  name: 'AboutView',
+  name: 'ResourcesView',
   data() {
     return {
       currentIndex: 0,
@@ -96,3 +96,4 @@ export default {
   }
 };
 </script>
+

@@ -23,9 +23,22 @@ h1, h2, h3, h4, h5, a {
     font-family: 'Inter', sans-serif;
     text-decoration: none;
 }
+h3 {
+    font-family: Domine;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0.48px;  
+}
 
 h6, p {
     font-family: 'Domine', serif;
+    text-align: justify;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
 }
 
 header {
@@ -35,4 +48,5 @@ header {
 }
 .home {
     overflow: hidden;
+    height: 100%;
 }

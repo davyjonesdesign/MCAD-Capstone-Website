@@ -3,15 +3,13 @@
 nav {
     // padding: 30px;
     border-top: 1px solid $charcoal;
-    height: 80px;
+    height: 74px;
     display: flex;
     flex-direction: row;
     padding: 0 24px;
-
-
-
+    background: $tan;
     a {
-        padding: 0px 48px;
+        padding: 0px 24px;
         margin: 8px 8px 16px 0;
         height: 48px;
         display: flex;
@@ -39,4 +37,7 @@ nav {
         transform: translateY(8px);
         }
     }
+}
+.ham-menu {
+    display: none;
 }
