@@ -11,22 +11,22 @@
   </header>
   <div class="home">
     <NavCard 
-      title="Card Title"
+      title="About"
       paragraph="This is a sample card description."
       image="mount-temptation.jpg"
       link="/about"
     />
     <NavCard 
-      title="Resouces"
-      paragraph="This is a sample card description."
-      image="people.png"
-      link="/resources"
-    />
-    <NavCard 
       title="Process"
       paragraph="This is a sample card description."
-      image="assets.png"
+      image="people.png"
       link="/process"
+    />
+    <NavCard 
+      title="Results"
+      paragraph="This is a sample card description."
+      image="assets.png"
+      link="/results"
     />
   </div>
 </template>

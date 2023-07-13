@@ -33,13 +33,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss">
-.card {
-  /* Add your card styles here */
-}
-
-.card-content {
-  /* Add your card content styles here */
-}
-</style>

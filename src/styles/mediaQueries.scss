@@ -42,13 +42,34 @@
             margin-bottom: -6px;
             height: 24px;
         } 
+        & .teaserBtn-wrap {
+            & button {
+                display: flex;
+                align-items: center;
+                padding: 0 20px;
+                margin: 8px 8px 16px 0;
+                & svg {
+                    margin: 0 6px 0px 0;
+                    height: 22px;
+                } & span {
+                    margin: 0 0 1px 0;
+                } 
+            } & button.active {
+                color: $vanilla;
+                fill: $vanilla;
+                background: $charcoal;
+                box-shadow: 0 0 0 0 $charcoal;
+                transform: translateY(8px);
+                padding: 0 20px 1px;
+            }
+        }
 
     }
     nav {
         // display: none;
         height: 0;
         width: 100vw;
-        padding: 0;
+        padding: 0 0 12px 0;
         position: absolute;
         bottom: 74px;
         transition: height 0.3s;
@@ -60,14 +81,14 @@
         align-items: flex-start;
         justify-content: flex-end;
         opacity: 0;
-        margin-bottom: 12px;
         & a {
             margin: 8px 8px 16px 16px;
+        } & .teaserBtn-wrap {
+            display: none;
         }
     }
     .slide-in {
-        height: calc(100vh - 80px); /* Set your desired height for the navigation */
-        // top: 0;
+        height: calc(100vh - 80px);
         opacity: 1;
       }
     .logo-wrapper {
@@ -124,7 +145,7 @@
             }
         }
     }
-    .splash-img img{
+    .splash-img img {
         max-width: 40vw;
         margin: 0;
         max-height: 300px;
@@ -141,12 +162,26 @@
     .page {
         & .content-wrapper {
             flex-direction: column;
-        height: calc(100vh - 142px);
-        margin: 8px;
-            & .content-text {
-                margin: 24px 0 24px 24px;
-                padding: 16px 24px 24px 0;
+            height: calc(100vh - 142px);
+            margin: 8px;
+            & .img-wrap {
+                margin: -12px;
             }
+            & img {
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+                max-width: 768px;
+                border-radius: 0;
+                // margin: -12px -12px 0 -12px;
+            } & .content-text {
+                margin: 0 0 0;
+                padding: 12px;
+                // max-width: 768px;
+                // overflow-x: hidden;
+            }
+        } & .img-right {
+            flex-direction: column-reverse;
         }
     }
   }

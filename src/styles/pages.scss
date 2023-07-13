@@ -3,34 +3,54 @@
   position: fixed;
   width: 100vw;
   height: calc(100vh - 130px);
+  overflow: hidden;
   & .content-wrapper {
-    display: flex;
-    flex-direction: row;
     margin: 24px;
     height: calc(100vh - 178px);
-    // padding: 24px 105px;
     border-radius: 24px;
     border: 1px solid $charcoal;
     background: $vanilla;
     overflow: hidden;
     transition: opacity 0.3s;
-    & img {
-      // position: av;
-      // margin-left: -105px;
-      object-fit: cover;
-      width: 30vw;
-    } & .content-text {
-      margin: 24px 0 24px 80px;
-      padding: 24px 105px 24px 0;
-      overflow-y: scroll;
-    } 
-  } & .img-right {
-    justify-content: space-between;
-    & .content-text {
-        margin: 0 0 0 105px;
-        padding: 24px 80px 24px 0;
-        overflow-y: scroll;
-      } 
+    & .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      overflow-y: auto;
+    }
+    & .img-wrap {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        padding: 0 0 0;
+        width: 100%;
+        // margin: -48px calc(-20vw - 48px) 0;
+      } & img {
+        object-fit: cover;
+        width: 100%;
+        // max-width: 600px;
+        max-height: 300px;
+        border-radius: 0;
+        border-bottom: 1px solid $charcoal;
+      } & .content-text {
+        margin: 24px  80px 24px;
+        max-width: 600px;
+        
+        & .subhead {
+          font-weight: 800;
+          margin: 32px 0 0;
+        }
+      } & p.caption {
+        // max-width: 600px;
+        width: 100%;
+        line-height: 1.5;
+        margin: 12px 0 0 0;
+        font-size: 14px;
+        font-style: italic;
+        text-align: center;
+      }
   }
 }
 
@@ -48,6 +68,7 @@
   position: fixed;
   bottom: 0px;
   right: 12px;
+  z-index: 100;
   & button {
     color: inherit;
     font: inherit;
@@ -71,15 +92,26 @@
     text-decoration: none;
     &:hover {
         background: $tan;
-    } &:active {
+    } &:active, &:disabled {
         color: $vanilla;
         fill: $vanilla;
         background: $charcoal;
         box-shadow: 0 0 0 0 $charcoal;
         transform: translateY(8px);
-        }
+      } 
   } & button svg {
     margin-bottom: -6px;
     height: 24px;
+  }
+}
+.pageBtns {
+  position: relative;
+  display: flex;
+  margin: 0 -24px 32px 0;
+  max-width: 600px;
+  & .previousBtn svg {
+    padding: 0 8px 0 0;
+  } & .forwardBtn svg {
+    padding: 0 0 0 8px;
   }
 }
