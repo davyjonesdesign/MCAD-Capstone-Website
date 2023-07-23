@@ -7,25 +7,24 @@
       <WisLogo/>
       <p class="headline">A user-friendly tool with accessible biblical context to foster deeper understanding.</p>
     </div>
-    <p class="name">Davy Jones</p>
   </header>
   <div class="home">
     <NavCard 
       title="About"
-      paragraph="This is a sample card description."
-      image="mount-temptation.jpg"
+      paragraph="The background of the project, including the summary, the problem, and questions towards a solution."
+      image="jerusalem.jpg"
       link="/about"
     />
     <NavCard 
       title="Process"
-      paragraph="This is a sample card description."
-      image="people.png"
+      paragraph="The process of creating the app, from research to design to development."
+      image="process_initial.png"
       link="/process"
     />
     <NavCard 
       title="Results"
-      paragraph="This is a sample card description."
-      image="assets.png"
+      paragraph="The final product, including the design system, the Figma Prototype and a teaser video."
+      image="wis-brand.png"
       link="/results"
     />
   </div>

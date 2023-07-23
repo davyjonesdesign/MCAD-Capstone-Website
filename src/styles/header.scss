@@ -9,19 +9,7 @@ header {
         font-weight: 400;
         line-height: 42px;
         align-items: center;
-    } & p.name {
-        text-align: right;
-        font-size: 16px;
-        font-style: italic;
-        font-weight: 400;
-        line-height: 36px;
-        margin: 12px 24px;
-        position: fixed;
-        right: 0;
-        top: 0;
-    } & p.name-internal {
-        position: relative;
-        // margin: 12px;
+        margin: 8px 0 24px;
     } & .splash-content {
         padding: 24px 24px 24px 0;
     }
@@ -35,18 +23,22 @@ header.header-internal {
         padding: 0;
         position: fixed;
         left: 50%;
-        width: 200px;
-        margin-right: -100px;
-        transform: translateX(-50%);
+        width: 244px;
+        transform: translateX(-44%);
         & img {
-            width: 24px;
+            width: 32px;
+            margin-right: 16px;
         }
-    } & .logo-wrapper h1 {
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
-        letter-spacing: 0.2px;
+    } & .logo-wrapper {
+        margin: 0;
+        & h1 {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            letter-spacing: 0.2px;
+        }
+        
     }
 }
 .splash-img img{
