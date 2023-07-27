@@ -4,6 +4,7 @@
   width: 100vw;
   height: calc(100vh - 130px);
   overflow: hidden;
+  webkit-overflow-scrolling: touch;
   & .content-wrapper {
     margin: 24px;
     height: calc(100vh - 178px);
