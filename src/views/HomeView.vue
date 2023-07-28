@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="splash-img">
-      <img src="@/assets/wis-laptop-mockup.png" alt="Written in Stone App Laptop Mockup">
+      <img src="@/assets/wis-mac-mockup.png" alt="Written in Stone App Laptop Mockup">
     </div>
     <div class="splash-content">
       <WisLogo/>
@@ -11,7 +11,7 @@
   <div class="home">
     <NavCard 
       title="About"
-      paragraph="The background of the project, including the summary, the problem, and questions towards a solution."
+      paragraph="The project background, including summary, problem, questions, and solution."
       image="jerusalem.jpg"
       link="/about"
     />

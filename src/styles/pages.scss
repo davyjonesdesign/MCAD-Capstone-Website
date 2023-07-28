@@ -2,13 +2,16 @@
 .page {
   position: fixed;
   width: 100vw;
-  height: calc(100dvh - 130px);
+  height: calc(100dvh - 95px);
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
   overflow: hidden;
-  webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
   & .content-wrapper {
-    margin: 24px;
-    height: calc(100dvh - 178px);
-    border-radius: 24px;
+    margin: 0 16px 4px;
+    height: 100dvh;
+    border-radius: 8px;
     border: 1px solid $charcoal;
     background: $vanilla;
     overflow: hidden;
@@ -109,11 +112,23 @@
     height: 24px;
   }
 }
+.page-h {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 16px;
+  & h2 {
+    margin: 12px 0;
+  }
+}
 .arrowBtnsTop {
-  position: fixed;
-  top: 0px;
-  right: 24px;
+  position: relative;
+  // top: 0px;
+  right: unset;
   z-index: 0;
+  height: 49px;
   & button, & a {
     padding: 0px 7px;
     margin: 1px 0 9px 8px;

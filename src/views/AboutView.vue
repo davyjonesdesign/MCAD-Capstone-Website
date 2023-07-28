@@ -1,12 +1,22 @@
 <template>
   <div class="about">
     <header class="header-internal">
-      <h2>About</h2>
       <div class="splash-content">
         <WisLogo/>
       </div>
     </header>
     <div class="page">
+      <div class="page-h">
+        <h2>About</h2>
+        <div class="arrowBtns arrowBtnsTop">
+          <button class="previousBtn" @click="previousContent" :disabled="currentIndex === 0">
+            <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points=".00006 12 1.42859 10.57141 1.42865 10.57141 10.00006 2 11.42865 3.42859 3.95776 10.89948 24 10.89948 24 12.89948 3.75671 12.89948 11.42865 20.57141 10.00006 22 1.42865 13.42859 1.42859 13.42865 0 12.00006 .00006 12"/></svg>
+          </button>
+          <button class="forwardBtn" @click="nextContent" :disabled="currentIndex === content.length - 1"> 
+            <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="23.99994 12 22.57141 10.57141 22.57135 10.57141 13.99994 2 12.57135 3.42859 20.04224 10.89948 0 10.89948 0 12.89948 20.24329 12.89948 12.57135 20.57141 13.99994 22 22.57135 13.42859 22.57141 13.42865 24 12.00006 23.99994 12"/></svg>
+          </button>
+        </div>
+      </div>
       <transition-group name="fade" mode="out-in">
         <div v-if="isContentVisible" class="content-wrapper">
           <div class="content">
@@ -20,7 +30,7 @@
                 <p v-for="tag in currentContent.tags" class="tag" v-bind:key="tag.id">{{ tag.tag }}</p>
               </div>
               <div class="content-text-end" v-if="currentContent.text">
-                <p v-for="pp in currentContent.text" v-bind:key="pp.id" :class="pp.style">{{ pp.text }}</p>
+                <p v-for="pp in currentContent.text" v-bind:key="pp.id" :class="pp.style">{{ pp.text }} <router-link class="citation-style" to="/citations">{{ pp.cite }}</router-link></p>
               </div>
               
               <div class="content-img-wrap" v-if="currentContent.imgEnd">
@@ -54,14 +64,6 @@
         </div>
       </transition-group>
     </div>
-    <div class="arrowBtns arrowBtnsTop">
-      <button class="previousBtn" @click="previousContent" :disabled="currentIndex === 0">
-        <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points=".00006 12 1.42859 10.57141 1.42865 10.57141 10.00006 2 11.42865 3.42859 3.95776 10.89948 24 10.89948 24 12.89948 3.75671 12.89948 11.42865 20.57141 10.00006 22 1.42865 13.42859 1.42859 13.42865 0 12.00006 .00006 12"/></svg>
-      </button>
-      <button class="forwardBtn" @click="nextContent" :disabled="currentIndex === content.length - 1">
-        <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="23.99994 12 22.57141 10.57141 22.57135 10.57141 13.99994 2 12.57135 3.42859 20.04224 10.89948 0 10.89948 0 12.89948 20.24329 12.89948 12.57135 20.57141 13.99994 22 22.57135 13.42859 22.57141 13.42865 24 12.00006 23.99994 12"/></svg>
-      </button>
-    </div>
   </div>
 </template>
 
@@ -88,7 +90,7 @@ export default {
           text: [
             { text: 'Due to a lack of awareness, many individuals miss out on comprehensive biblical background information, leading to a limited understanding of scripture\'s true meaning and significance. As a result, they are unable to engage with the text responsibly and fully appreciate its teachings.' },
             { text: 'Specific Example', style: "subhead" },
-            { text: 'When David pens the words of Psalm 23, "He makes me lie down in green pastures, he leads me beside quiet waters," many Western readers envision lush, picturesque grasslands next to a serene, crystal-clear lake (see image below).' },
+            { text: 'When David pens the words of Psalm 23, "He makes me lie down in green pastures, he leads me beside quiet waters," many Western readers envision lush, picturesque grasslands next to a serene, crystal-clear lake (see image below).', cite: 1 },
           ],
           imgEnd: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Gentau_Pic_du_Midi_Ossau.jpg/640px-Gentau_Pic_du_Midi_Ossau.jpg',
           imgCaptionEnd: 'Lake Gentau reflecting the Pic du Midi d\'Ossau - Pyrénées-Atlantiques, France (Wikimedia Commons)',
@@ -100,7 +102,7 @@ export default {
           title: 'Problem (continued)',
           text: [
             { text: 'Specific Example (continued)', style: "subhead" },
-            { text: 'David\'s experiences as a shepherd in the wilderness of the Judean hills, depicted in the image (see image below), were far from luxurious. Food was scarce, and water could only be found in the wadis that cut through the hills and flowed towards the dead sea. These wadis turned into dangerous rushing rivers during rains in Jerusalem, posing a deadly threat to anyone caught in them. (Wright, 116-117)' },
+            { text: 'David\'s experiences as a shepherd in the wilderness of the Judean hills, depicted in the image (see image below), were far from luxurious. Food was scarce, and water could only be found in the wadis that cut through the hills and flowed towards the dead sea. These wadis turned into dangerous rushing rivers during rains in Jerusalem, posing a deadly threat to anyone caught in them.', cite: 2 },
           ], 
           imgEnd: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Judea_2_by_David_Shankbone.jpg/640px-Judea_2_by_David_Shankbone.jpg',
           imgCaptionEnd: 'The Wilderness of Judea (Wikimedia Commons)',
@@ -114,7 +116,9 @@ export default {
             { text: 'As I ventured into this project, a fundamental question arose:' },
             { text: 'Can an interactive map enhance our understanding of the Bible? By visually connecting biblical places with real-world geography, could we gain clearer insights into their relationships and contexts, deepening our grasp of the biblical stories and messages?' },
             { text: 'In support of this idea, an intriguing study caught my attention:' },
-            { text: 'Researchers conducted a study in London that focused on the structural changes in the hippocampi of taxi drivers, revealing that their brains underwent spatial navigation-related alterations as a result of their experience (Maguire et al., 2000). Could using an interactive map for Bible study offer similar cognitive benefits?' },
+            { text: 'Researchers conducted a study in London that focused on the structural changes in the hippocampi of taxi drivers, revealing that their brains underwent spatial navigation-related alterations as a result of their experience.', cite: 3 },
+            { text: 'Could using an interactive map for Bible study offer similar cognitive benefits?' },
+            { text: 'To answer these questions, I began researching the importance of geographical context in biblical interpretation.' },
           ], 
           imgA: 'https://davyjonesdesign.github.io/data-for-axios/assets/capstone/progress-wk2/mt-olives-graves.jpg',
           imgCaption: 'Mount of Olives gravesite in Jerusalem.',
@@ -126,7 +130,7 @@ export default {
           title: 'Questions Toward a Solution (continued)',
           text: [
             { text: 'Paul H. Wright\'s puts it well in his summary of why geographical information is so important in interpreting scripture. He says the following:' },
-            { text: '"The biblical writers were profoundly aware of their own physical environment, infusing the narrative with geographical information. A regional approach to biblical geography could reveal the impact of geographical realities on settlement, communication, economy, and defense during the biblical period, providing deeper insights into the authors\' perspectives." (Wright, 19)' },
+            { text: '"The biblical writers were profoundly aware of their own physical environment, infusing the narrative with geographical information. A regional approach to biblical geography could reveal the impact of geographical realities on settlement, communication, economy, and defense during the biblical period, providing deeper insights into the authors\' perspectives."', cite: 2 },
           ], 
           imgEnd: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tierra_Media_Rhun.jpg/640px-Tierra_Media_Rhun.jpg',
           imgCaptionEnd: 'Map of Rhûn, from Lord of the Rings (Wikimedia Commons)',
