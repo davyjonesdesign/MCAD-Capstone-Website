@@ -24,7 +24,7 @@
     <NavCard 
       title="Results"
       paragraph="The final product, including the design system, the Figma Prototype and a teaser video."
-      image="wis-brand.png"
+      image="jones_davy_writtenInStone.png"
       link="/results"
     />
   </div>

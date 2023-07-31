@@ -65,9 +65,12 @@
                 <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points=".00006 12 1.42859 10.57141 1.42865 10.57141 10.00006 2 11.42865 3.42859 3.95776 10.89948 24 10.89948 24 12.89948 3.75671 12.89948 11.42865 20.57141 10.00006 22 1.42865 13.42859 1.42859 13.42865 0 12.00006 .00006 12"/></svg>
                 Previous
               </button>
-              <button class="forwardBtn" @click="nextContent" :disabled="currentIndex === content.length - 1">Next 
+              <button class="forwardBtn" @click="nextContent" v-if="currentIndex !== content.length - 1" :disabled="currentIndex === content.length - 1">Next 
                 <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="23.99994 12 22.57141 10.57141 22.57135 10.57141 13.99994 2 12.57135 3.42859 20.04224 10.89948 0 10.89948 0 12.89948 20.24329 12.89948 12.57135 20.57141 13.99994 22 22.57135 13.42859 22.57141 13.42865 24 12.00006 23.99994 12"/></svg>
               </button>
+              <router-link v-if="currentIndex === content.length - 1" class="forwardBtn" to="/endnotes" >Endnotes 
+                <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="23.99994 12 22.57141 10.57141 22.57135 10.57141 13.99994 2 12.57135 3.42859 20.04224 10.89948 0 10.89948 0 12.89948 20.24329 12.89948 12.57135 20.57141 13.99994 22 22.57135 13.42859 22.57141 13.42865 24 12.00006 23.99994 12"/></svg>
+              </router-link>
             </div>
           </div>
         </div>
@@ -137,7 +140,7 @@ export default {
           text: [
             { text: 'This brand was carefully crafted to combine a clean, modern aesthetic with historical roots. The chosen colors draw inspiration from the landscapes of the ancient near east, creating a sense of connection to the land. The typography, components, and patterns work harmoniously to create a sophisticated and user-friendly interface, resulting in a thoroughly tested and scalable design system centered around the user\'s needs.'}
           ],
-          imgA: require('@/assets/wis-brand.png'),
+          imgA: require('@/assets/jones_davy_writtenInStone.png'),
           imgCaption: 'Figma Design System as of July 21, 2023',
           FigPro: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxLh7aq2HW1eUzrIFbNJlph%2FWIS_final%3Fpage-id%3D1%253A9%26type%3Ddesign%26node-id%3D121-782%26viewport%3D419%252C-141%252C0.15%26t%3D8wJbf7mbPMbK9qR3-1%26scaling%3Dscale-down-width%26starting-point-node-id%3D121%253A782%26mode%3Ddesign&hide-ui=1',
           FigCaption: 'Figma Design System as of July 21, 2023',
@@ -159,10 +162,10 @@ export default {
           textEnd: [
             { text: 'By continuously refining my design based on real-world insights and user needs, I strive to create a user-centered design system that stays ahead of future demands.'}
           ],
-          FigPro: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxLh7aq2HW1eUzrIFbNJlph%2FWIS_final%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D95-981%26viewport%3D39%252C434%252C0.76%26t%3DPavinLIp9dYFSqKb-1%26scaling%3Dscale-down-width%26starting-point-node-id%3D95%253A981%26mode%3Ddesign&hide-ui=1',
+          FigPro: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxLh7aq2HW1eUzrIFbNJlph%2FWIS_final%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D225-2746%26viewport%3D-775%252C772%252C0.46%26t%3DAL3n8atHjE7glDI3-1%26scaling%3Dscale-down-width%26starting-point-node-id%3D225%253A2746%26mode%3Ddesign&hide-ui=1',
           FigCaption: 'Figma Prototype as of July 21, 2023',
           links: [
-            { link: 'https://www.figma.com/proto/xLh7aq2HW1eUzrIFbNJlph/WIS_final?page-id=0%3A1&type=design&node-id=95-981&viewport=39%2C434%2C0.76&t=PavinLIp9dYFSqKb-1&scaling=scale-down&starting-point-node-id=95%3A981&mode=design', text: 'Figma Prototype', style: 'list-item' },
+            { link: 'https://www.figma.com/proto/xLh7aq2HW1eUzrIFbNJlph/WIS_final?page-id=0%3A1&type=design&node-id=225-2746&viewport=-775%2C772%2C0.46&t=AL3n8atHjE7glDI3-1&scaling=scale-down&starting-point-node-id=225%3A2746&mode=design', text: 'Figma Prototype', style: 'list-item' },
           ],
         },
         { 
