@@ -39,21 +39,23 @@
         border-radius: 0;
         border-bottom: 1px solid $charcoal;
       } & .content-text {
-        margin: 24px  80px 24px;
+        margin: 24px 80px 24px;
         max-width: 600px;
         & ul {
-          margin: 0 0 0 -16px;
+          margin: 0 0 32px 8px;
           padding: 0;
           & li {
           font-size: 16px;
           font-weight: 500;
-          list-style: none;
+          list-style: disc;
           font-family: 'Inter', sans-serif;
-            margin: 0 0 8px 16px;
+            margin: 0 0 8px 24px;
 
           }
         }
-        
+        & .content-img-wrap img {
+          border-bottom: none;
+        }
         & .subhead {
           font-weight: 800;
           margin: 32px 0 0;
@@ -205,3 +207,4 @@
 .responsive-iframe {
   border: 1px solid $charcoal;
 }
+

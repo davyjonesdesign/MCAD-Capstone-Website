@@ -9,8 +9,10 @@
         width: 100vw;
         background: $tan;
         & .hamBtn {
-            padding: 6px;
-            margin-left: 8px;
+            padding: 5px 6px 5px;
+            width: 100%;
+            margin-left: 0;
+            margin: 6px 8px 0;
         }
         & button {
             color: inherit;
@@ -43,7 +45,7 @@
                 transform: translateY(8px);
                 }
         } & button svg {
-            margin-bottom: -6px;
+            margin-bottom: 4px;
             height: 24px;
         } 
         & .teaserBtn-wrap {
@@ -90,10 +92,12 @@
         } & .teaserBtn-wrap {
             // display: none;
             margin: 8px 8px 8px;
+        } & p.name {
+            position: absolute;
         }
     }
     .slide-in {
-        height: calc(100dvh - 54px);
+        height: calc(100dvh - 116px);
         opacity: 1;
       }
 
@@ -105,8 +109,6 @@
         & p.headline {
             margin: 0 8px;
             text-align: center;
-        } & p.name {
-            display: none;
         } & .splash-content {
             padding: 0;
         } & .splash-img {

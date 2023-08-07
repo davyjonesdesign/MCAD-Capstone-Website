@@ -17,7 +17,7 @@
     <p class="name">Davy Jones</p>
   </nav>
   <div class="teaserVid-wrap" @click="toggleTeaser" :class="{'pop-up': isTeaserOpen}">
-    <iframe frameborder="0" src="https://mega.nz/embed/61JHmZLB#p91KWNv8MHAswPhzH5-IDqAJS4x_IJZDCX37s8bvIc0" allowfullscreen ></iframe>
+    <iframe frameborder="0" src="https://mega.nz/embed/KpRVHSSQ#8RqquOy9z7PCewdTFkVXwUYJrSwEtCNVSn2KAqNRDCc" allowfullscreen ></iframe>
   </div>
   
   <div class="ham-menu">

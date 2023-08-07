@@ -30,7 +30,7 @@
                 <p v-for="tag in currentContent.tags" class="tag" v-bind:key="tag.id">{{ tag.tag }}</p>
               </div>
               <div class="content-text-end" v-if="currentContent.text">
-                <p v-for="pp in currentContent.text" v-bind:key="pp.id" :class="pp.style">{{ pp.text }} <router-link class="citation-style" to="/citations">{{ pp.cite }}</router-link></p>
+                <p v-for="pp in currentContent.text" v-bind:key="pp.id" :class="pp.style">{{ pp.text }} <router-link class="citation-style" to="/endnotes">{{ pp.cite }}</router-link></p>
               </div>
               
               <div class="content-img-wrap" v-if="currentContent.imgEnd">
@@ -38,7 +38,7 @@
                 <p class="caption">{{ currentContent.imgCaptionEnd }}</p>
               </div>
               <div class="content-text-end" v-if="currentContent.textEnd">
-                <p v-for="pp in currentContent.textEnd" v-bind:key="pp.id" :class="pp.style">{{ pp.text }}</p>
+                <p v-for="pp in currentContent.textEnd" v-bind:key="pp.id" :class="pp.style">{{ pp.text }} <router-link class="citation-style" to="/endnotes">{{ pp.cite }}</router-link><router-link class="citation-style" to="/endnotes">{{ pp.cite2 }}</router-link></p>
               </div>
               <div class="content-links-wrapper" v-if="currentContent.links">
                 <h5>Links</h5>
@@ -78,66 +78,67 @@ export default {
       currentIndex: 0,
       content: [
         { 
-          title: 'Summary', 
+          title: 'Background', 
           text: [
             { text: 'My project aims to develop a user-friendly research tool that provides comprehensive context on the Bible, enabling individuals from diverse backgrounds to independently uncover the truth and responsibly engage with scripture, ultimately fostering a deeper understanding and appreciation of its teachings.' },
           ], 
-          imgA: 'https://davyjonesdesign.github.io/data-for-axios/assets/capstone/progress-wk1/jerusalem.jpg',
-          imgCaption: 'The Al-Aqsa Mosque / Temple Mount in Jerusalem taken from the Mount of Olives.',
+          imgEnd: require('@/assets/me-jordan.png'),
+          imgCaptionEnd: 'Me in Jordan, 2017',
+        },
+        { 
+          title: 'Hook', 
+          text: [
+            { text: 'This inspired me to create \'Written in Stone,\' an interactive map that helps people explore the biblical contexts on their own. By understanding these realities, readers can gain a deeper and more nuanced interpretation of the text.' }
+          ], 
+          imgEnd: require('@/assets/wis-mac-mockup.png'),
+          imgCaptionEnd: 'Written in Stone Current Prototype',
         },
         { 
           title: 'The Problem', 
           text: [
-            { text: 'Due to a lack of awareness, many individuals miss out on comprehensive biblical background information, leading to a limited understanding of scripture\'s true meaning and significance. As a result, they are unable to engage with the text responsibly and fully appreciate its teachings.' },
-            { text: 'Specific Example', style: "subhead" },
-            { text: 'When David pens the words of Psalm 23, "He makes me lie down in green pastures, he leads me beside quiet waters," many Western readers envision lush, picturesque grasslands next to a serene, crystal-clear lake (see image below).', cite: 1 },
+            { text: 'Many Bible readers miss out on these important aspects, limiting their ability to fully engage with the scriptures. The goal of \'Written in Stone\' is to bridge that gap and enable a more meaningful connection with the Bible for everyone."' },
+            { text: 'Example', style: "subhead" },
+            { text: 'Take Psalm 23, written by King David sometime during the second Iron Age as an example.' },
+            { text: 'When we read, "He makes me lie down in green pastures, he leads me beside quiet waters," we envision serene scenes like this image of a lake in France.', cite: 1 },
           ],
           imgEnd: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Gentau_Pic_du_Midi_Ossau.jpg/640px-Gentau_Pic_du_Midi_Ossau.jpg',
           imgCaptionEnd: 'Lake Gentau reflecting the Pic du Midi d\'Ossau - Pyrénées-Atlantiques, France (Wikimedia Commons)',
           textEnd: [
-            { text: ' However, David\'s intended meaning goes beyond these idyllic scenes.'}
+            { text: 'However, this wasn’t David’s context...'}
           ]
         },
         { 
-          title: 'Problem (continued)',
+          title: 'The Problem (continued)',
           text: [
-            { text: 'Specific Example (continued)', style: "subhead" },
-            { text: 'David\'s experiences as a shepherd in the wilderness of the Judean hills, depicted in the image (see image below), were far from luxurious. Food was scarce, and water could only be found in the wadis that cut through the hills and flowed towards the dead sea. These wadis turned into dangerous rushing rivers during rains in Jerusalem, posing a deadly threat to anyone caught in them.', cite: 2 },
+            { text: 'Example (continued)', style: "subhead" },
+            { text: 'This was David\'s context, the Judean hills, a desert. As a shepherd in this area, food was scarce. Water was scarcer and dangerous where it was found in the wadis that had frequent flashfloods.', cite: 2 },
           ], 
           imgEnd: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Judea_2_by_David_Shankbone.jpg/640px-Judea_2_by_David_Shankbone.jpg',
           imgCaptionEnd: 'The Wilderness of Judea (Wikimedia Commons)',
           textEnd: [
-            { text: 'David\'s words about God leading him to green pastures and still waters should not be interpreted as moments of comfort and ease. Instead, they reflect how God guided him to survival, showing him where to find food and safe water sources. Understanding David\'s geographical context is crucial for a meaningful interpretation of his words. Without this context, the true essence of his message is lost.' },
+            { text: 'Understanding his geographical context unveils a different meaning behind his words. David is saying much more than “the Lord is his comfort”, but rather “the Lord is his survival”. It’s examples like this one that really begin to show what bible-readers miss out on when they don’t have background info.' },
           ], 
         },
         { 
-          title: 'Questions Toward a Solution',
+          title: 'A Solution',
           text: [
-            { text: 'As I ventured into this project, a fundamental question arose:' },
-            { text: 'Can an interactive map enhance our understanding of the Bible? By visually connecting biblical places with real-world geography, could we gain clearer insights into their relationships and contexts, deepening our grasp of the biblical stories and messages?' },
-            { text: 'In support of this idea, an intriguing study caught my attention:' },
-            { text: 'Researchers conducted a study in London that focused on the structural changes in the hippocampi of taxi drivers, revealing that their brains underwent spatial navigation-related alterations as a result of their experience.', cite: 3 },
-            { text: 'Could using an interactive map for Bible study offer similar cognitive benefits?' },
-            { text: 'To answer these questions, I began researching the importance of geographical context in biblical interpretation.' },
+            { text: 'As I looked for a solution, I couldn’t really find an easy way to see these biblical realities without extensive research. But that seems too hard for most bible readers' },
+            { text: 'So I started by asking the question:' },
+            { text: 'Is there an easier way to glimpse the realities of the authors of the bible?', style: "strong" },
           ], 
+          textEnd: [
+          { text: 'I was inspired by fantasy writers like Tolkien who use maps to enrich readers\' experiences, I thought an interactive map could be a valuable tool. ' },
+          { text: 'I stumbled on a study conducted by University College London focusing on how London taxi drivers actually demonstrated brain growth through navigating and using maps in association with their routes.', cite2: 3 },
+          { text: 'This further encouraged my decision to focus on maps as a learning tool. With these things in mind, I decided to create a user-friendly, interactive map to enhance our understanding of biblical texts.'}
+          ],
           imgA: 'https://davyjonesdesign.github.io/data-for-axios/assets/capstone/progress-wk2/mt-olives-graves.jpg',
           imgCaption: 'Mount of Olives gravesite in Jerusalem.',
+          imgEnd: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tierra_Media_Rhun.jpg/640px-Tierra_Media_Rhun.jpg',
+          imgCaptionEnd: 'Map of Rhûn, from Lord of the Rings (Wikimedia Commons)',
           links: [
           { link: 'https://doi.org/10.1073/pnas.070039597', text: 'Related Structural Change in the Hippocampi of Taxi Drivers (PNAS)' },
           ]
-        },
-        { 
-          title: 'Questions Toward a Solution (continued)',
-          text: [
-            { text: 'Paul H. Wright\'s puts it well in his summary of why geographical information is so important in interpreting scripture. He says the following:' },
-            { text: '"The biblical writers were profoundly aware of their own physical environment, infusing the narrative with geographical information. A regional approach to biblical geography could reveal the impact of geographical realities on settlement, communication, economy, and defense during the biblical period, providing deeper insights into the authors\' perspectives."', cite: 2 },
-          ], 
-          imgEnd: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tierra_Media_Rhun.jpg/640px-Tierra_Media_Rhun.jpg',
-          imgCaptionEnd: 'Map of Rhûn, from Lord of the Rings (Wikimedia Commons)',
-          textEnd: [
-            { text: 'Inspired by Tolkien\'s use of maps to enrich readers\' experiences, I became captivated by the potential of interactive maps to deepen our understanding of literature, particularly narratives like the Bible. With this newfound insight, I eagerly focused on designing a user-friendly map to enhance our comprehension of biblical texts.' },
-          ], 
-        },
+        }
       ],
       isContentVisible: true
     };

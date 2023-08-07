@@ -118,7 +118,9 @@ export default {
           ],
           links: [
             { link: 'https://docs.google.com/document/d/1RfCwyeN3hs05BPPx6-4XxTa1fAfDtXdN5jTv0Kq6ApA/edit?usp=sharing', text: 'Full Bibliography' },
-            { link: 'https://blog.davyjones.me/', text: 'Progress Platform' }
+            { link: 'https://blog.davyjones.me/', text: 'Progress Platform' },
+            { link: 'https://www.figma.com/proto/xLh7aq2HW1eUzrIFbNJlph/WIS_final?page-id=260%3A4169&type=design&node-id=260-4181&viewport=-2803%2C-1895%2C0.36&t=g9ee7elPEOrDt2nv-1&scaling=scale-down&starting-point-node-id=260%3A4181&mode=design', text: 'Full Presentation Deck' },
+            { link: 'https://davyjones.me/', text: 'My Portfolio Website' },
           ]
         },
       ],

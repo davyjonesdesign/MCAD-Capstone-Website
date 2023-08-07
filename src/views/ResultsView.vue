@@ -31,11 +31,11 @@
                 <p v-for="tag in currentContent.tags" class="tag" v-bind:key="tag.id">{{ tag.tag }}</p>
               </div>
               <div class="content-text-p" v-if="currentContent.text">
-                <p v-for="pp in currentContent.text" v-bind:key="pp.id" :class="pp.style">{{ pp.text }} <router-link class="citation-style" to="/citations">{{ pp.cite }}</router-link></p>
+                <p v-for="pp in currentContent.text" v-bind:key="pp.id" :class="pp.style">{{ pp.text }} <router-link class="citation-style" to="/endnotes">{{ pp.cite }}</router-link></p>
               </div>
               <div class="content-text-ul" v-if="currentContent.list">
-                <ul v-for="item in currentContent.list" v-bind:key="item.id" :class="item.style">
-                  <li>{{ item.item }}</li>
+                <ul >
+                  <li v-for="item in currentContent.list" v-bind:key="item.id" :class="item.style">{{ item.item }}</li>
                 </ul>
               </div>
               <div class="content-img-wrap" v-if="currentContent.imgEnd">
@@ -47,7 +47,7 @@
                 <p class="caption">{{ currentContent.FigCaption }}</p>
               </div>
               <div class="content-text-end" v-if="currentContent.textEnd">
-                <p v-for="pp in currentContent.textEnd" v-bind:key="pp.id" :class="pp.style">{{ pp.text }} <router-link class="citation-style" to="/citations">{{ pp.cite }}</router-link></p>
+                <p v-for="pp in currentContent.textEnd" v-bind:key="pp.id" :class="pp.style">{{ pp.text }} <router-link class="citation-style" to="/endnotes">{{ pp.cite }}</router-link></p>
               </div>
               <div class="content-links-wrapper" v-if="currentContent.links">
                 <h5>Links</h5>
@@ -92,6 +92,8 @@ export default {
       content: [
         { 
           title: 'Components Rundown',
+          imgA: require('@/assets/WIS_deliverables.png'),
+          imgCaption: 'Overview of Deliverables',
           tags: [
             { tag: 'Figma'},
             { tag: 'Illustrator'},
@@ -104,7 +106,7 @@ export default {
             { tag: 'GitHub'},
           ],
           text: [
-            { text: 'The components that serve as the final deliverables for this project include the following:'}
+            { text: 'The components that serve as the final deliverables(for now) for this project include the following:'}
           ], 
           list: [
             { item: 'Marketing Teaser Video', style: 'list-item' },
@@ -115,11 +117,11 @@ export default {
           textEnd: [
             { text: 'The next sections will delve into each deliverable for this project.'}
           ], 
-          imgA: 'https://davyjonesdesign.github.io/data-for-axios/assets/capstone/progress-wk6/wis-teaser-pass3.gif',
-          imgCaption: 'Additional Component — Teaser Video',
         },
         { 
           title: 'Teaser Video', 
+          imgA: 'https://davyjonesdesign.github.io/data-for-axios/assets/capstone/progress-wk6/wis-teaser-pass3.gif',
+          imgCaption: 'Additional Component — Teaser Video',
           tags: [
             { tag: 'After Effects'},
             { tag: 'Illustrator'},
@@ -128,7 +130,7 @@ export default {
           text: [
             { text: 'The additional component I created is a teaser video as a potential marketing ad. The idea came from a fellow classmate, Alex Conover, who helped in the ideation process for the first version. After incorporating peer feedback through several iterations, the final version of this video effectively communicates the project\'s essence in a succinct manner.'}
           ],
-          FigPro: 'https://mega.nz/embed/61JHmZLB#p91KWNv8MHAswPhzH5-IDqAJS4x_IJZDCX37s8bvIc0',
+          FigPro: 'https://mega.nz/embed/KpRVHSSQ#8RqquOy9z7PCewdTFkVXwUYJrSwEtCNVSn2KAqNRDCc',
           FigCaption: 'Teaser Video — Final Version',
         },
         { 
@@ -138,12 +140,15 @@ export default {
             { tag: 'Illustrator'}
           ],
           text: [
-            { text: 'This brand was carefully crafted to combine a clean, modern aesthetic with historical roots. The chosen colors draw inspiration from the landscapes of the ancient near east, creating a sense of connection to the land. The typography, components, and patterns work harmoniously to create a sophisticated and user-friendly interface, resulting in a thoroughly tested and scalable design system centered around the user\'s needs.'}
+            { text: 'This brand was carefully crafted to combine a clean, modern aesthetic with historical roots. The chosen original color pallette drew inspiration from the landscapes of the ancient near east, creating a sense of connection to the land. The updated pallette successfully maintains this connection.'}
+          ],
+          textEnd: [
+            { text: 'The typography, components, and patterns work harmoniously to create a sophisticated and user-friendly interface, resulting in a thoroughly tested and scalable design system centered around the user\'s needs.'}
           ],
           imgA: require('@/assets/jones_davy_writtenInStone.png'),
-          imgCaption: 'Figma Design System as of July 21, 2023',
+          imgCaption: 'Figma Design System as of August 7, 2023',
           FigPro: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxLh7aq2HW1eUzrIFbNJlph%2FWIS_final%3Fpage-id%3D1%253A9%26type%3Ddesign%26node-id%3D121-782%26viewport%3D419%252C-141%252C0.15%26t%3D8wJbf7mbPMbK9qR3-1%26scaling%3Dscale-down-width%26starting-point-node-id%3D121%253A782%26mode%3Ddesign&hide-ui=1',
-          FigCaption: 'Figma Design System as of July 21, 2023',
+          FigCaption: 'Figma Design System as of August 7, 2023',
           links: [
             { link: 'https://www.figma.com/proto/xLh7aq2HW1eUzrIFbNJlph/WIS_final?page-id=1%3A9&type=design&node-id=121-782&viewport=419%2C-141%2C0.15&t=8wJbf7mbPMbK9qR3-1&scaling=scale-down&starting-point-node-id=121%3A782&mode=design', text: 'Figma Design System', style: 'list-item'}
           ]
@@ -155,15 +160,23 @@ export default {
             { tag: 'Illustrator'},
           ],
           text: [
-            { text: 'As I worked on the original prototype, it served as a strong basis for my development efforts. However, once I had the MVP Vue + Leaflet App up and running, it became clear that the discoveries I made during development needed to be incorporated back into the prototype. This was essential to ensure a seamless alignment between my design and the development process in the future.'},
-            { text: 'Moreover, I took subject matter feedback into account, which provided valuable insights from a long-term perspective. As a result, I redesigned the Figma prototype to reflect these findings, leading to the establishment of two categories of patterns and components: one for the current state and another for future enhancements.' },
-            { text: 'Now, the current prototype showcases both how the app ought to look and function while introducing newer patterns aimed at improving the user experience and addressing their feedback. Notably, I added hover labels with thumbnails and a \'related sites\' section featuring new tag and site-card components.' }
+            { text: 'I refined the original prototype based on discoveries made during development.'},
+            { text: 'Now, the prototype showcases the app\'s current functionality while introducing newer patterns aimed at improving the user experience and addressing their feedback. The future enhancements include the following. Notably, I added hover labels with thumbnails and a \'related sites\' section featuring new tag and site-card components.' }
+          ],
+          list: [
+            { item: 'Updated UI pallette', style: 'list-item' },
+            { item: 'Thumbnail Hover Labels', style: 'list-item' },
+            { item: 'Card motif for result items', style: 'list-item' },
+            { item: 'Reordered details section', style: 'list-item' },
+            { item: 'New related sites section where users can take their own thematic journey through these sites based on selectable tags.', style: 'list-item' },
           ],
           textEnd: [
-            { text: 'By continuously refining my design based on real-world insights and user needs, I strive to create a user-centered design system that stays ahead of future demands.'}
+            { text: 'By continuously refining my design based on user needs and developmental strategies, I strive to create a user-centered design system that stays ahead of future demands.'}
           ],
+          imgA: require('@/assets/WIS_feedback.png'),
+          imgCaption: 'Feedback from non-academic users lead to a UI color pallette shift.',
           FigPro: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxLh7aq2HW1eUzrIFbNJlph%2FWIS_final%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D225-2746%26viewport%3D-775%252C772%252C0.46%26t%3DAL3n8atHjE7glDI3-1%26scaling%3Dscale-down-width%26starting-point-node-id%3D225%253A2746%26mode%3Ddesign&hide-ui=1',
-          FigCaption: 'Figma Prototype as of July 21, 2023',
+          FigCaption: 'Figma Prototype as of August 7, 2023',
           links: [
             { link: 'https://www.figma.com/proto/xLh7aq2HW1eUzrIFbNJlph/WIS_final?page-id=0%3A1&type=design&node-id=225-2746&viewport=-775%2C772%2C0.46&t=AL3n8atHjE7glDI3-1&scaling=scale-down&starting-point-node-id=225%3A2746&mode=design', text: 'Figma Prototype', style: 'list-item' },
           ],
@@ -177,16 +190,33 @@ export default {
             { tag: 'GitHub'},
           ],
           text: [
-            { text: 'The final deliverable is a user-friendly Vue and Leaflet app, serving as a comprehensive research tool for exploring biblical backgrounds. It offers site images, geographical data, academic overviews, and scriptural cross-references.'},
-            { text: 'Users can interact with an interactive map and clickable markers, visually exploring archaeological sites and accessing detailed information. Search and filtering functionalities make navigation seamless, allowing users to find specific locations and relevant data easily.' }
+            { text: 'The final deliverable is a user-friendly Vue and Leaflet app, serving as a comprehensive research tool for exploring biblical backgrounds. It offers site images, geographical data, academic overviews, scriptural cross-references, and related sites.'},
+            { text: 'Users can perform global searches, filtering their results by category or historical period. This makes navigation seamless, allowing users to find specific locations and relevant data easily.' },
+            { text: 'They can select items of interest to open the details page, discovering basic geography, cross-referenced verses among other kinds of background. And soon, users will be able to select other sites that populate based on thematic tags in the additional related sites section.' }
           ],
           textEnd: [
-            { text: 'The app empowers individuals from diverse backgrounds to independently uncover the truth and responsibly engage with scripture, fostering a deeper understanding and appreciation of its teachings.' }
+            { text: 'The interactive map also allows for users to click on other sites that are close by, creating a way for them to explore these biblical sites visually and spatially. As users explorew the app, they would begin to expand their biblical understandings - which is the whole point of this project!' }
           ],
           FigPro: 'https://wis.davyjones.me/',
+          imgA: require('@/assets/WIS_dev-process.png'),
+          imgCaption: 'Development process using VS Code, Vue, Leaflet, and GitHub.',
           links: [
             { link: 'https://wis.davyjones.me/', text: 'Live App', style: 'list-item' },
           ],
+        },
+        { 
+          title: 'Summary / Future Work',
+          text: [
+            { text: 'In conclusion,"Written in Stone" offers an interactive map for easy access to biblical context. The provided background facts help Bible learners gain insights into the Bible and its teachings.'},
+          ],
+          textEnd: [
+            { text: 'Future Work', style: 'strong' },
+            { text: 'The app is a work in progress, and I plan to continue developing it. I plan to integrate the prototype styling and functions and will also continue to refine the design system, making it more robust and scalable.' },
+            { text: 'I also plan to design and develop a mobile version while conducting further research, gathering user feedback. I want to reach out to partners to collaborate with and adapt the app to various community contexts (developers, nonprofits, colleges, etc.).' },
+            { text: 'I will continue developing this project and make it a useful tool for Bible learners everywhere.' },
+          ],
+          imgEnd: require('@/assets/wis-mac-mockup.png'),
+          imgCaptionEnd: 'Written in Stone Current Prototype'
         }
       ],
       isContentVisible: true
